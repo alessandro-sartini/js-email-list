@@ -9,22 +9,39 @@ Buon Lavoro
 
 const listaMail = document.getElementById("listaMail");
 
-rigenera.addEventListener("click", function () {
+// for (let i = 0; i <= 9; i++) {
+//   axios
+//     .get("https://flynn.boolean.careers/exercises/api/random/mail")
+//     .then((risposta) => {
+//       console.log(risposta.data.response);
+
+//      let  emailGenerator = risposta.data.response;
+
+//       listaMail.innerHTML += `
+//         <li class="list-group-item">${emailGenerator}</li>
+//         `;
+//     });
+// }
+
+function generator() {
   for (let i = 0; i <= 9; i++) {
-    let emailGenerator;
     axios
       .get("https://flynn.boolean.careers/exercises/api/random/mail")
       .then((risposta) => {
         console.log(risposta.data.response);
 
-        emailGenerator = risposta.data.response;
+        let emailGenerator = risposta.data.response;
 
-        listaMail.innerHTML += `
-        <li class="list-group-item">${emailGenerator}</li>    
-        `;
+          listaMail.innerHTML +=
+            `
+              <li class="list-group-item">${emailGenerator}</li>    
+            `;
       });
   }
+}
+generator();
 
-  const rigenera = document.getElementById("rigenera");
-  console.log(rigenera);
+rigenera.addEventListener("click", function () {
+    listaMail.innerHTML = "";
+  generator();
 });
