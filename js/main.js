@@ -34,14 +34,17 @@ function generator() {
 
           listaMail.innerHTML +=
             `
-              <li class="list-group-item">${emailGenerator}</li>    
+              <li class="list-group-item border-success-subtle">${emailGenerator}</li>    
             `;
       });
   }
 }
+
 generator();
 
 rigenera.addEventListener("click", function () {
+
     listaMail.innerHTML = "";
-  generator();
+    generator();
+
 });
